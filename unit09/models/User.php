@@ -1,45 +1,8 @@
 <?php 
-	require_once('Connection.php');
-	class User{
-		var $connection;
+	require_once('Model.php');
+	class User extends Model{
 
-		function __construct(){
-			$Connection_obj = new Connection();
-			$this->connection = $Connection_obj->conn;
-		}
-
-		function all(){
-
-			$sql = "SELECT * FROM users";
-
-			// Thực thi câu lệnh
-			$result = $this->connection->query($sql);
-
-			// Tạo 1 mảng để chứa dữ liệu
-			$users = array();
-
-			while($row = $result->fetch_assoc()) { 
-				$users[] = $row;
-			}
-
-			return $users;
-		}
-
-		function find($id){
-			$sql = "SELECT * FROM users WHERE id=".$id;
-
-			// Thực thi câu lệnh
-			$result = $this->connection->query($sql);
-			return $result->fetch_assoc();
-
-		}
+		var $table = 'Users';
 	}
 
-	// $user = new User();
-
-	// $users = $user->all();
-
-	// echo "<pre>";
-	// 	print_r($users);
-	// echo "</pre>";
  ?>

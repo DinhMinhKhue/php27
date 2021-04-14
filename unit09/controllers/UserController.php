@@ -1,29 +1,57 @@
 <?php 
 	require_once('models/User.php');
 	class UserController{
+		var $model;
 		function __construct(){
-			
+			$this->model = new User();
 		}
 		function list(){
-			$model = new User();
-			$users = $model->all();
+			$users = $this->model->all();
 			require_once('view/Users/list.php');
 		}
 		function detail(){
-			//$categories = array();
-			$model = new User();
 			$id = $_GET['id'];
-			$user = $model->find($id);
+			$user = $this->model->find($id);
 			require_once('view/Users/detail.php');
 		}
 		function add(){
-			echo "<br> Form thêm mới Users";
+			require_once('view/Users/add.php');
 		}
-		function add_process(){
-			echo "<br> process thêm mới Users";
+		function store(){
+			$data = $_POST;
+			$success = $this->model->add($data);
+			if ($success){
+				setcookie('success','Thêm mới thành công!!!',time() + 10);
+			}else{
+				setcookie('error','Thêm mới KHÔNG thành công!!!',time() + 10);
+			}
+			header(header: "Location: index.php?mod=user&act=list");
+		}
+		function delete(){
+			$id = $_GET['id'];
+			$success = $this->model->delete($id);
+			if ($success){
+				setcookie('success','Xóa thành công!!!',time() + 10);
+			}else{
+				setcookie('error','Xóa KHÔNG thành công!!!',time() + 10);
+			}
+			header("Location: index.php?mod=user&act=list");
+		}
+		function update(){
+			
+			$data = $_POST;
+			$success = $this->model->update($data);
+			if ($success){
+				setcookie('success','Cập nhật thành công!!!',time() + 10);
+			}else{
+				setcookie('error','Cập nhật KHÔNG thành công!!!',time() + 10);
+			}
+			header("Location: index.php?mod=user&act=list");
 		}
 		function edit(){
-			echo "<br> Form sửa Users";
+			$id = $_GET['id'];
+			$user = $this->model->find($id);
+			require_once('view/Users/edit.php');
 		}
 
 	}

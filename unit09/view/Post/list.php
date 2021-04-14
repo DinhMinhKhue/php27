@@ -46,7 +46,7 @@
                     <td>
                         <a href="index.php?mod=post&act=detail&id=<?= $post['id'] ?>" class="btn btn-primary">Detail</a>
                         <a href="#" class="btn btn-success">Edit</a>
-                        <a href="#" class="btn btn-danger">Delete</a>
+                        <a href="index.php?mod=post&act=delete&id=<?= $post['id'] ?>" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             <?php } ?>

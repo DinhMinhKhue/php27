@@ -16,9 +16,11 @@
 <body>
 	<div class="container">
 		<h3 class="text-center">--- USERS ---</h3>
-		<a href="users_add.php" class="btn btn-primary">Add New users</a>
+		<a href="index.php?mod=user&act=add" class="btn btn-primary">Add New users</a>
 
-		<?php echo (isset($_COOKIE['cate_add_msg'])?$_COOKIE['cate_add_msg']:'') ?>
+		<?php echo (isset($_COOKIE['success'])?$_COOKIE['success']:'') ?>
+        <?php echo (isset($_COOKIE['error'])?$_COOKIE['error']:'') ?>
+
 		<table class="table">
 			<thead>
 				<th>ID</th>
@@ -38,8 +40,8 @@
 				<td><?= $user['email'] ?></td>
 				<td>
 					<a href="index.php?mod=user&act=detail&id=<?= $user['id'] ?>" class="btn btn-primary">Detail</a>
-					<a href="#" class="btn btn-success">Edit</a>
-					<a href="#" class="btn btn-danger">Delete</a>
+					<a href="index.php?mod=user&act=edit&id=<?= $user['id'] ?>" class="btn btn-success">Edit</a>
+					<a href="index.php?mod=user&act=delete&id=<?= $user['id'] ?>" class="btn btn-danger">Delete</a>
 				</td>
 			</tr>
 			<?php } ?>
