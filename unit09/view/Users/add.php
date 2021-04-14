@@ -24,8 +24,8 @@
                 <input type="text" class="form-control" id="" placeholder="" name="name">
             </div>
             <div class="form-group">
-                <label for="">Description</label>
-                <input type="text" class="form-control" id="" placeholder="" name="description">
+                <label for="">Email</label>
+                <input type="text" class="form-control" id="" placeholder="" name="email">
             </div>
             <button type="submit" class="btn btn-primary">Create</button>
         </form>

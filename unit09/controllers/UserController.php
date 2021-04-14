@@ -25,7 +25,7 @@
 			}else{
 				setcookie('error','Thêm mới KHÔNG thành công!!!',time() + 10);
 			}
-			header(header: "Location: index.php?mod=user&act=list");
+			header("Location: index.php?mod=user&act=list");
 		}
 		function delete(){
 			$id = $_GET['id'];

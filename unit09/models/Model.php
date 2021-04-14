@@ -57,7 +57,7 @@
 
 		$sql = "INSERT INTO ".$this->table."(".$colums.") VALUES (".$values.")";
 
-		$sql = "INSERT INTO ".$this->table."(".$colums.") VALUES (".$values.")";
+		echo "$sql";
 
 		//Thực thi câu lệnh
 		$result = $this->connection->query($sql);
